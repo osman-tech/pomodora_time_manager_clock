@@ -10,7 +10,7 @@ FONT_NAME = "Courier"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
-
+reps = 0
 
 # ---------------------------- TIMER RESET ------------------------------- #
 def reset():
@@ -60,7 +60,6 @@ def start_timer():
         timer_label.config(text="long break")
 
 
-
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def countdown(count):
     count_min = math.floor(count / 60)
@@ -70,7 +69,7 @@ def countdown(count):
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
         global timer
-        timer = window.after(100, countdown, count - 1)
+        timer = window.after(1000, countdown, count - 1)
     if count <= 0:
         start_timer()
 
